@@ -43,7 +43,7 @@ try:
     print("Email exists")
 
     # Type "aaaa" into the email field
-    email_field.send_keys("aaaa")
+    email_field.send_keys("khalfaouihoussemeddine94@gmail.com")
     print('Typed "aaaa" into the email field')
 
 except Exception as e:
@@ -85,4 +85,3 @@ except Exception as e:
 
 # Close the browser
 driver.quit()
-
