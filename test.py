@@ -42,9 +42,13 @@ try:
     )
     print("Email exists")
 
-    # Take a screenshot after confirming email field is present
+    # Type "aaaa" into the email field
+    email_field.send_keys("aaaa")
+    print('Typed "aaaa" into the email field')
+
+    # Take a screenshot after typing into the email field
     timestamp = time.strftime("%Y%m%d-%H%M%S")
-    screenshot_filename = f"emailimage_{timestamp}.png"
+    screenshot_filename = f"email_after_typing_{timestamp}.png"
     driver.save_screenshot(screenshot_filename)
     print(f"Screenshot saved as {screenshot_filename}")
 
@@ -53,3 +57,4 @@ except Exception as e:
 
 # Close the browser
 driver.quit()
+
