@@ -63,11 +63,25 @@ try:
 except Exception as e:
     print("Password field not found:", e)
 
-# Take a screenshot after typing both email and password
-timestamp = time.strftime("%Y%m%d-%H%M%S")
-screenshot_filename = f"email_password_after_typing_{timestamp}.png"
-driver.save_screenshot(screenshot_filename)
-print(f"Screenshot saved as {screenshot_filename}")
+# Wait for the login button to be visible and clickable
+try:
+    login_button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.NAME, 'login'))
+    )
+    print("Login button found")
+
+    # Click the login button
+    login_button.click()
+    print("Clicked the login button")
+
+    # Take a screenshot after clicking the login button
+    timestamp = time.strftime("%Y%m%d-%H%M%S")
+    screenshot_filename = f"login_button_clicked_{timestamp}.png"
+    driver.save_screenshot(screenshot_filename)
+    print(f"Screenshot saved as {screenshot_filename}")
+
+except Exception as e:
+    print("Login button not found:", e)
 
 # Close the browser
 driver.quit()
