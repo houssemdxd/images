@@ -74,6 +74,8 @@ try:
     login_button.click()
     print("Clicked the login button")
     driver.implicitly_wait(5)
+# Wait for 6 seconds after clicking the login button
+    time.sleep(6)
 
     # Take a screenshot after clicking the login button
     timestamp = time.strftime("%Y%m%d-%H%M%S")
@@ -86,3 +88,4 @@ except Exception as e:
 
 # Close the browser
 driver.quit()
+
