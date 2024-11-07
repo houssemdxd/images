@@ -46,14 +46,28 @@ try:
     email_field.send_keys("aaaa")
     print('Typed "aaaa" into the email field')
 
-    # Take a screenshot after typing into the email field
-    timestamp = time.strftime("%Y%m%d-%H%M%S")
-    screenshot_filename = f"email_after_typing_{timestamp}.png"
-    driver.save_screenshot(screenshot_filename)
-    print(f"Screenshot saved as {screenshot_filename}")
-
 except Exception as e:
     print("Email field not found:", e)
+
+# Wait for the password field to be visible
+try:
+    password_field = WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.ID, 'pass'))
+    )
+    print("Password field exists")
+
+    # Type "password123" into the password field
+    password_field.send_keys("password123")
+    print('Typed "password123" into the password field')
+
+except Exception as e:
+    print("Password field not found:", e)
+
+# Take a screenshot after typing both email and password
+timestamp = time.strftime("%Y%m%d-%H%M%S")
+screenshot_filename = f"email_password_after_typing_{timestamp}.png"
+driver.save_screenshot(screenshot_filename)
+print(f"Screenshot saved as {screenshot_filename}")
 
 # Close the browser
 driver.quit()
