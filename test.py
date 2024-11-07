@@ -57,7 +57,7 @@ try:
     print("Password field exists")
 
     # Type "password123" into the password field
-    password_field.send_keys("password123")
+    password_field.send_keys("Spotcha-18")
     print('Typed "password123" into the password field')
 
 except Exception as e:
